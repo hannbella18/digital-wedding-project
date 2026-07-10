@@ -1,4 +1,4 @@
-# Majlis Raikan Cinta 💍
+# Digital Wedding Card 💍
 
 A mobile-first digital wedding invitation website created for the wedding celebration
 
