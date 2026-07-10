@@ -557,11 +557,11 @@ body::after{
 .opening-title{
   margin: 0 0 22px;
   color: var(--burgundy-dark);
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 10vw, 4rem);
-  font-weight: 600;
-  line-height: .95;
-  letter-spacing: -.02em;
+  font-family: "Alex Brush", cursive;
+  font-size: clamp(2.1rem, 8vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: .01em;
   text-shadow:
     0 3px 18px rgba(255,255,255,.92);
 }
@@ -1084,7 +1084,7 @@ button:hover,
   margin: 24px auto 0 !important;
   color: var(--burgundy);
   font-family: var(--font-script);
-  font-size: clamp(1.9rem, 7vw, 2.65rem);
+  font-size: clamp(1.6rem, 5.8vw, 2.25rem);
   font-weight: 400;
   line-height: 1.32 !important;
   text-align: center;
@@ -2192,17 +2192,12 @@ button:hover,
 .thank-you-couples{
   display: flex;
   flex-direction: column;
-
   align-items: center;
-
   gap: 2px;
-
   margin-top: 32px;
-
   color: var(--burgundy-dark);
-
   font-family: var(--font-script);
-  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-size: clamp(1.45rem, 5.5vw, 2.05rem);
   line-height: 1.35;
 }
 
@@ -2801,8 +2796,7 @@ button:hover,
 
   .thank-you-couples{
     margin-top: 28px;
-
-    font-size: clamp(1.8rem, 10vw, 2.35rem);
+    font-size: clamp(1.4rem, 7.5vw, 1.95rem);
   }
 }
 
