@@ -6,7 +6,7 @@ A mobile-first digital wedding invitation website created for the wedding celebr
 
 ## About the Project
 
-**Majlis Raikan Cinta** is a responsive digital wedding invitation built using HTML, CSS, and JavaScript.
+**Digital Wedding Card** is a responsive digital wedding invitation built using HTML, CSS, and JavaScript.
 
 The website follows a **Romantic Garden** theme with soft floral backgrounds, champagne-gold details, burgundy accents, elegant typography, and smooth animations.
 
