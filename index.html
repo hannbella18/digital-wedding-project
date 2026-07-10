@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Majlis Raikan Cinta</title>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Romantic Garden Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Parisienne&family=Poppins:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="invitation-locked">
+  <!-- PHASE 1: ANIMATED ENVELOPE OPENING -->
+  <section
+    id="openingScreen"
+    class="opening-screen"
+    aria-label="Buka jemputan perkahwinan"
+  >
+    <div class="opening-content">
+
+      <h1 class="opening-title">
+        Majlis Raikan Cinta
+      </h1>
+
+      <button
+        id="openInvitationBtn"
+        class="envelope-trigger"
+        type="button"
+        aria-label="Tekan untuk membuka jemputan"
+      >
+        <span class="envelope-shell" aria-hidden="true">
+
+          <span class="envelope-back"></span>
+
+          <span class="invitation-card">
+            <img
+              src="assets/img/cover.png"
+              alt=""
+              loading="eager"
+              decoding="async"
+            >
+          </span>
+
+          <span class="envelope-pocket"></span>
+
+          <span class="envelope-flap"></span>
+
+        </span>
+
+        <span class="tap-hint">
+          <span class="tap-icon">✉</span>
+          Tekan untuk membuka jemputan
+        </span>
+      </button>
+       </div>
+  </section>
+
+  <!-- FULL POSTER PREVIEW -->
+  <section
+    id="posterScreen"
+    class="poster-screen"
+    aria-label="Poster jemputan perkahwinan"
+    aria-hidden="true"
+  >
+    <div class="poster-preview">
+
+      <div class="poster-image-wrapper">
+        <img
+          src="assets/img/cover.png"
+          alt="Poster Majlis Raikan Cinta"
+          class="poster-image"
+        >
+      </div>
+
+      <div class="poster-actions">
+        <p class="poster-timer-text">
+          Jemputan akan dibuka dalam
+          <strong>
+            <span id="posterTimer">30</span> saat
+          </strong>
+        </p>
+
+        <button
+          id="continueInvitationBtn"
+          class="poster-continue-btn"
+          type="button"
+        >
+          Teruskan ke Jemputan
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio
+    id="weddingMusic"
+    preload="metadata"
+    loop
+  >
+    <source
+      src="assets/audio/music.mp3"
+      type="audio/mpeg"
+    >
+  </audio>
+
+  <!-- FLOATING MUSIC CONTROL -->
+  <button
+    id="musicControlBtn"
+    class="music-control is-hidden"
+    type="button"
+    aria-label="Mainkan muzik"
+    aria-pressed="false"
+  >
+    <span
+      class="music-control-icon"
+      aria-hidden="true"
+    >
+      ♫
+    </span>
+
+    <span class="visually-hidden">
+      Kawalan muzik
+    </span>
+  </button>
+
+  <!-- MAIN CONTENT -->
+  <main id="mainContent" class="hidden" aria-hidden="true">
+    <!-- FLOATING GARDEN DECORATIONS -->
+    <div
+      id="gardenDecorations"
+      class="garden-decorations"
+      aria-hidden="true"
+    ></div>
+    <button
+      id="viewPosterBtn"
+      class="view-poster-btn"
+      type="button"
+    >
+      ← Back
+    </button>
+
+    <!-- COUPLE + PARENTS -->
+    <section id="coupleSection" class="section" data-aos="garden-reveal" data-aos-duration="1200">
+      <div class="container">
+        <div class="paper-card">
+          <div class="couple-text">
+            <p class="bismillah-arabic" lang="ar" dir="rtl">
+              بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+            </p>
+
+            <p class="intro">Dengan nama Allah yang Maha Pemurah dan Penyayang</p>
+
+            <p class="parents">Hj Mohd Fauzi bin Razali@Ghazali & Hjh Noorzela binti Kadir</p>
+
+            <p class="honorific">
+              penuh rasa hormat dan berbesar hati menjemput<br>
+              Dato / Datin / Tuan / Puan / Encik / Cik
+            </p>
+
+            <p class="invitation">ke majlis perkahwinan anakanda kesayangan kami</p>
+
+            <p class="couple-names">
+              <span class="person-name">Mohamad Fauzan bin Mohd Fauzi</span>
+              <span class="name-ampersand">&amp;</span>
+              <span class="person-name">Saidatul Nazihah binti Sata</span>
+
+              <span class="and">dan</span>
+
+              <span class="person-name">Mohamad Farhan bin Mohd Fauzi</span>
+              <span class="name-ampersand">&amp;</span>
+              <span class="person-name">Nur Amanina Nasuha binti Hairudin</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIKH MAJLIS -->
+    <section id="tarikh" class="section" data-aos="garden-reveal">
+      <div class="container">
+
+        <h2 class="section-title">Tarikh Majlis</h2>
+
+        <p class="section-subtitle">
+          Dengan penuh kesyukuran, kami menantikan kehadiran anda
+        </p>
+
+        <div class="paper-card date-card">
+
+          <p class="date-save-text">
+            Save the Date
+          </p>
+
+          <div class="calendar-display">
+
+            <div class="calendar-side">
+              <span class="calendar-value">Ahad</span>
+            </div>
+
+            <div class="calendar-main">
+              <span class="calendar-month">Ogos</span>
+              <span class="calendar-number">30</span>
+              <span class="calendar-year">2026</span>
+            </div>
+
+            <div class="calendar-side">
+              <span class="calendar-value calendar-hijri">
+                17 Rabiulawal<br>1448H
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section id="countdown" class="section" data-aos="garden-reveal">
+      <div class="container">
+
+        <h2 class="section-title">Countdown Majlis</h2>
+
+        <p class="section-subtitle">
+          Menghitung hari menuju hari bahagia kami
+        </p>
+
+        <div class="paper-card countdown-card">
+
+          <div
+            class="countdown-grid"
+            id="countdownGrid"
+            aria-label="Kiraan masa sehingga majlis"
+          >
+
+            <div class="cd-box">
+              <div class="cd-num" id="cdDays">00</div>
+              <div class="cd-label">Hari</div>
+            </div>
+
+            <span class="countdown-separator" aria-hidden="true">:</span>
+
+            <div class="cd-box">
+              <div class="cd-num" id="cdHours">00</div>
+              <div class="cd-label">Jam</div>
+            </div>
+
+            <span class="countdown-separator" aria-hidden="true">:</span>
+
+            <div class="cd-box">
+              <div class="cd-num" id="cdMins">00</div>
+              <div class="cd-label">Minit</div>
+            </div>
+
+            <span class="countdown-separator" aria-hidden="true">:</span>
+
+            <div class="cd-box">
+              <div class="cd-num" id="cdSecs">00</div>
+              <div class="cd-label">Saat</div>
+            </div>
+          </div>
+         <p
+            class="countdown-note"
+            id="countdownNote"
+            aria-live="polite"
+            hidden
+          ></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ATURCARA MAJLIS -->
+    <section id="aturcara" class="section" data-aos="garden-reveal">
+      <div class="container">
+
+        <h2 class="section-title">Aturcara Majlis</h2>
+
+        <p class="section-subtitle">
+          Susunan acara pada hari bahagia kami
+        </p>
+
+        <div class="paper-card timeline-card">
+
+          <div class="timeline">
+
+            <div class="t-row">
+              <div class="t-time">
+                <span class="t-time-main">11:00</span>
+                <span class="t-time-period">pagi</span>
+              </div>
+
+              <div class="t-line" aria-hidden="true">
+                <span class="t-dot"></span>
+              </div>
+
+              <div class="t-desc">
+                <span class="t-event">Jamuan makan bermula</span>
+              </div>
+            </div>
+
+            <div class="t-row">
+              <div class="t-time">
+                <span class="t-time-main">12:30</span>
+                <span class="t-time-period">tengah hari</span>
+              </div>
+
+              <div class="t-line" aria-hidden="true">
+                <span class="t-dot"></span>
+              </div>
+
+              <div class="t-desc">
+                <span class="t-event">Ketibaan pengantin</span>
+              </div>
+            </div>
+
+            <div class="t-row">
+              <div class="t-time">
+                <span class="t-time-main">4:00</span>
+                <span class="t-time-period">petang</span>
+              </div>
+
+              <div class="t-line" aria-hidden="true">
+                <span class="t-dot"></span>
+              </div>
+
+              <div class="t-desc">
+                <span class="t-event">Majlis bersurai</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOCATION + MAP -->
+    <section id="location" class="section" data-aos="garden-reveal">
+      <div class="container">
+
+        <h2 class="section-title">Lokasi Majlis</h2>
+
+        <p class="section-subtitle">
+          Kami menantikan kehadiran anda di lokasi berikut
+        </p>
+
+        <div class="paper-card location-card">
+
+          <div class="venue-photo-wrap">
+            <img
+              src="assets/img/venue.png"
+              alt="Glass Castle Hall, Seremban"
+              class="venue-photo"
+            >
+
+            <div class="venue-photo-badge">
+              Glass Castle Hall
+            </div>
+          </div>
+
+          <p class="location-kicker">
+            Tempat Majlis
+          </p>
+
+          <h3 class="event-name">
+            Glass Castle Hall
+          </h3>
+
+          <p class="event-info">
+            Seremban, Negeri Sembilan
+          </p>
+
+          <div class="location-divider" aria-hidden="true">
+            <span></span>
+            <span class="location-divider-icon">❦</span>
+            <span></span>
+          </div>
+
+          <div class="action-row">
+
+            <a
+              class="btn location-btn location-primary"
+              href="https://maps.app.goo.gl/QBn6jhtR1ScMC39BA"
+              target="_blank"
+              rel="noopener"
+            >
+              📌 Google Maps
+            </a>
+
+            <a
+              class="btn location-btn location-secondary"
+              href="https://waze.com/ul/hw22x2dh4r"
+              target="_blank"
+              rel="noopener"
+            >
+              🚗 Waze
+            </a>
+
+            <button
+              id="copyAddressBtn"
+              class="btn location-btn location-copy"
+              type="button"
+            >
+              📋 Copy Alamat
+            </button>
+
+          </div>
+
+          <p class="hint-text">
+            Cari “Glass Castle Hall Seremban” sekiranya pautan lokasi tidak dapat dibuka.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" data-aos="garden-reveal">
+      <div class="container">
+
+        <h2 class="section-title">Untuk Dihubungi</h2>
+
+        <p class="section-subtitle">
+          Sekiranya terdapat sebarang pertanyaan, sila hubungi
+        </p>
+
+        <div class="paper-card contact-card">
+
+          <div class="contact-list">
+
+            <!-- MOHD FAUZI -->
+            <article class="contact-item">
+
+              <div class="contact-avatar" aria-hidden="true">
+                MF
+              </div>
+
+              <div class="contact-details">
+                <h3 class="contact-name">
+                  Mohd Fauzi
+                </h3>
+
+                <p class="contact-role">
+                  Bapa pengantin
+                </p>
+
+                <a
+                  class="contact-no"
+                  href="tel:+60196540140"
+                >
+                </a>
+              </div>
+
+              <div class="contact-actions">
+                <a
+                  class="contact-action contact-whatsapp"
+                  href="https://wa.me/60196540140"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="WhatsApp Mohd Fauzi"
+                >
+                  WhatsApp
+                </a>
+
+                <a
+                  class="contact-action contact-call"
+                  href="tel:+60196540140"
+                  aria-label="Hubungi Mohd Fauzi"
+                >
+                  Call
+                </a>
+              </div>
+
+            </article>
+
+            <!-- NOORZELA -->
+            <article class="contact-item">
+
+              <div class="contact-avatar" aria-hidden="true">
+                N
+              </div>
+
+              <div class="contact-details">
+                <h3 class="contact-name">
+                  Noorzela
+                </h3>
+
+                <p class="contact-role">
+                  Ibu pengantin
+                </p>
+
+                <a
+                  class="contact-no"
+                  href="tel:+60136050164"
+                >
+                </a>
+              </div>
+
+              <div class="contact-actions">
+                <a
+                  class="contact-action contact-whatsapp"
+                  href="https://wa.me/60136050164"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="WhatsApp Noorzela"
+                >
+                  WhatsApp
+                </a>
+
+                <a
+                  class="contact-action contact-call"
+                  href="tel:+60136050164"
+                  aria-label="Hubungi Noorzela"
+                >
+                  Call
+                </a>
+              </div>
+
+            </article>
+
+            <!-- FAKHRUL -->
+            <article class="contact-item">
+
+              <div class="contact-avatar" aria-hidden="true">
+                F
+              </div>
+
+              <div class="contact-details">
+                <h3 class="contact-name">
+                  Fakhrul
+                </h3>
+
+                <p class="contact-role">
+                  Adik pengantin
+                </p>
+
+                <a
+                  class="contact-no"
+                  href="tel:+60196365250"
+                >
+                </a>
+              </div>
+
+              <div class="contact-actions">
+                <a
+                  class="contact-action contact-whatsapp"
+                  href="https://wa.me/60196365250"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="WhatsApp Fakhrul"
+                >
+                  WhatsApp
+                </a>
+
+                <a
+                  class="contact-action contact-call"
+                  href="tel:+60196365250"
+                  aria-label="Hubungi Fakhrul"
+                >
+                  Call
+                </a>
+              </div>
+
+            </article>
+
+            <!-- HANNIS -->
+            <article class="contact-item">
+
+              <div class="contact-avatar" aria-hidden="true">
+                H
+              </div>
+
+              <div class="contact-details">
+                <h3 class="contact-name">
+                  Hannis
+                </h3>
+
+                <p class="contact-role">
+                  Adik pengantin
+                </p>
+
+                <a
+                  class="contact-no"
+                  href="tel:+60136898473"
+                >
+                </a>
+              </div>
+
+              <div class="contact-actions">
+                <a
+                  class="contact-action contact-whatsapp"
+                  href="https://wa.me/60136898473"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="WhatsApp Hannis"
+                >
+                  WhatsApp
+                </a>
+
+                <a
+                  class="contact-action contact-call"
+                  href="tel:+60136898473"
+                  aria-label="Hubungi Hannis"
+                >
+                  Call
+                </a>
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- FINAL THANK-YOU SECTION -->
+    <section
+      id="thankYou"
+      class="section thank-you-section" data-aos="garden-reveal"
+    >
+      <div class="container">
+
+        <div class="thank-you-content">
+
+          <p class="thank-you-kicker">
+            Dengan penuh kesyukuran
+          </p>
+
+          <h2 class="thank-you-title">
+            Terima Kasih
+          </h2>
+
+          <div class="thank-you-divider" aria-hidden="true">
+            <span></span>
+            <span class="thank-you-heart">♡</span>
+            <span></span>
+          </div>
+
+          <p class="thank-you-message">
+            Kehadiran dan doa restu anda amat bermakna
+            dalam menyempurnakan hari bahagia kami.
+          </p>
+
+          <p class="thank-you-prayer">
+            Semoga Allah memberkati majlis ini serta
+            mengurniakan kebahagiaan dan keberkatan kepada kita semua.
+          </p>
+
+          <div class="thank-you-couples">
+            <span>Fauzan &amp; Nazihah</span>
+            <span class="thank-you-and">dan</span>
+            <span>Farhan &amp; Amanina</span>
+          </div>
+
+          <p class="thank-you-date">
+            30 Ogos 2026
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1100,
+      easing: "ease-out-cubic",
+      offset: 70,
+      once: true,
+      mirror: false
+    });
+</script>
+</body>
+</html>
