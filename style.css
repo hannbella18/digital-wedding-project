@@ -27,7 +27,7 @@
   --pad-section: 90px;
 
   /* Typography */
-  --font-script: "Parisienne", cursive;
+  --font-script: "Dancing Script", cursive;
   --font-heading: "Cormorant Garamond", serif;
   --font-body: "Poppins", sans-serif;
   --font-arabic: "Noto Naskh Arabic", serif;
@@ -1080,28 +1080,29 @@ button:hover,
 
 /* Both couples' names */
 .couple-names{
-  max-width: 650px;
+  max-width: 100%;
   margin: 24px auto 0 !important;
-  color: var(--burgundy);
+  color: #7a3343;
   font-family: var(--font-script);
-  font-size: clamp(1.6rem, 5.8vw, 2.25rem);
-  font-weight: 400;
-  line-height: 1.32 !important;
+  font-size: clamp(1.35rem, 4.3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.22 !important;
   text-align: center;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: anywhere;
+  letter-spacing: .01em;
 }
 
-.person-name,
+.person-name{
+  display: block;
+  white-space: nowrap;
+}
+
 .name-ampersand{
   display: block;
-}
-
-.name-ampersand{
-  margin: 2px 0;
+  margin: 6px 0;
   color: var(--champagne);
-  font-size: .8em;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  line-height: 1;
 }
 
 .couple-names .and{
@@ -1109,11 +1110,12 @@ button:hover,
   margin: 18px 0;
   color: var(--champagne);
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-style: italic;
+  font-size: 1.2rem;
+  font-style: normal;
   font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 /* =========================
@@ -2163,27 +2165,50 @@ button:hover,
 /* Main message */
 .thank-you-message{
   max-width: 540px;
-
   margin: 0 auto;
-
   color: var(--text);
-
   font-family: var(--font-heading);
   font-size: clamp(1.15rem, 4vw, 1.4rem);
   font-weight: 600;
   line-height: 1.7;
 }
 
-/* Prayer message */
-.thank-you-prayer{
-  max-width: 560px;
+/* Doa restu */
+.thank-you-doa{
+  position: relative;
+  max-width: 580px;
+  margin: 24px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(197,161,90,.28);
+  text-align: center;
+}
 
-  margin: 18px auto 0;
-
-  color: var(--muted);
-
+.thank-you-doa-title{
+  margin: 0 0 12px;
+  color: var(--champagne);
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.thank-you-doa-arabic{
+  margin: 0 auto;
+  color: var(--burgundy-dark);
+  font-family: var(--font-arabic);
+  font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.thank-you-doa-meaning{
+  max-width: 520px;
+  margin: 12px auto 0;
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: .96rem;
   font-style: italic;
   line-height: 1.75;
 }
@@ -2193,26 +2218,36 @@ button:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   margin-top: 32px;
-  color: var(--burgundy-dark);
+  color: #7a3343;
   font-family: var(--font-script);
   font-size: clamp(1.45rem, 5.5vw, 2.05rem);
+  font-weight: 600;
   line-height: 1.35;
 }
 
-.thank-you-and{
-  margin: 5px 0;
-
+.thank-you-name-heart{
+  display: inline-block;
+  margin: 0 4px;
   color: var(--champagne);
-
   font-family: var(--font-heading);
-  font-size: .75rem;
-  font-style: italic;
+  font-size: .72em;
   font-weight: 600;
+  transform: translateY(-1px);
+}
 
-  letter-spacing: .22em;
-  text-transform: uppercase;
+.thank-you-and{
+  display: block;
+  margin: 7px 0;
+  color: var(--champagne);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 /* Wedding date */
@@ -2403,7 +2438,18 @@ button:hover,
   }
 
   .couple-names{
-    font-size: clamp(2rem, 10vw, 2.65rem);
+    font-size: clamp(1.1rem, 4.9vw, 1.35rem);
+    line-height: 1.2 !important;
+  }
+
+  .name-ampersand{
+    margin: 4px 0;
+    font-size: 1.2rem;
+  }
+
+  .couple-names .and{
+    margin: 14px 0;
+    font-size: 1.05rem;
   }
 }
 
@@ -2790,8 +2836,24 @@ button:hover,
     font-size: 1.12rem;
   }
 
-  .thank-you-prayer{
-    font-size: .92rem;
+  .thank-you-doa{
+    margin-top: 22px;
+    padding-top: 20px;
+  }
+
+  .thank-you-doa-title{
+    margin-bottom: 10px;
+    font-size: .72rem;
+  }
+
+  .thank-you-doa-arabic{
+    font-size: 1.3rem;
+    line-height: 1.85;
+  }
+
+  .thank-you-doa-meaning{
+    font-size: .88rem;
+    line-height: 1.7;
   }
 
   .thank-you-couples{
