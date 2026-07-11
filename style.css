@@ -1072,10 +1072,11 @@ button:hover,
 /* Main invitation sentence */
 .invitation{
   margin-top: 22px !important;
-  color: var(--text);
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 600;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: .88rem;
+  font-weight: 400;
+  line-height: 1.8 !important;
 }
 
 /* Both couples' names */
@@ -1212,8 +1213,8 @@ button:hover,
 .calendar-number{
   margin: 4px 0 2px;
   color: var(--burgundy-dark);
-  font-family: var(--font-heading);
-  font-size: clamp(4.8rem, 14vw, 7rem);
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(3.8rem, 10vw, 5.5rem);
   font-weight: 600;
   line-height: .9;
 }
@@ -2589,7 +2590,7 @@ button:hover,
   }
 
   .calendar-number{
-    font-size: clamp(4rem, 20vw, 5.2rem);
+    font-size: clamp(3.2rem, 15vw, 4.1rem);
   }
 
   .calendar-month{

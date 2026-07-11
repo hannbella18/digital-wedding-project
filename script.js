@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let invitationIsOpening = false;
   let posterInterval = null;
   let musicHasStarted = false;
+  let musicWasPlayingBeforeHidden = false;
 
   const reduceMotion = window
     .matchMedia("(prefers-reduced-motion: reduce)")
@@ -169,7 +170,64 @@ document.addEventListener("DOMContentLoaded", () => {
       "pause",
       updateMusicControl
     );
-  }  
+  }
+  
+  /* Pause music when the guest leaves the tab or browser */
+  const pauseMusicWhenPageIsHidden = () => {
+    if (!weddingMusic) {
+      return;
+    }
+
+    if (document.hidden) {
+      pauseWeddingMusic();
+    }
+  };
+
+  /* Remember the music state and pause when leaving the page */
+  const rememberAndPauseMusic = () => {
+    if (!weddingMusic || weddingMusic.paused) {
+      return;
+    }
+
+    musicWasPlayingBeforeHidden = true;
+
+    pauseWeddingMusic();
+  };
+
+  /* Resume only if the music was playing before leaving */
+  const resumeMusicAfterReturning = () => {
+    if (!musicWasPlayingBeforeHidden) {
+      return;
+    }
+
+    musicWasPlayingBeforeHidden = false;
+
+    playWeddingMusic();
+  };
+
+  /* Switching tabs, minimizing Chrome or opening another app */
+  document.addEventListener(
+    "visibilitychange",
+    () => {
+      if (document.hidden) {
+        rememberAndPauseMusic();
+      } else {
+        resumeMusicAfterReturning();
+      }
+    }
+  );
+
+  /* Leaving or closing the current page */
+  window.addEventListener(
+    "pagehide",
+    rememberAndPauseMusic
+  );
+
+  /* Returning to a page restored by the browser */
+  window.addEventListener(
+    "pageshow",
+    resumeMusicAfterReturning
+  );
   /* Stop any existing poster countdown */
   const stopPosterTimer = () => {
     if (posterInterval) {
