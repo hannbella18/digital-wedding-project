@@ -1028,13 +1028,13 @@ button:hover,
 }
 
 /* Bismillah/introduction text */
-.bismillah-arabic{
-  margin: 0 0 8px;
+.greeting-arabic{
+  margin: 0 0 10px;
   color: var(--burgundy-dark);
   font-family: var(--font-arabic);
-  font-size: clamp(1.45rem, 5vw, 2rem);
+  font-size: clamp(1.15rem, 4vw, 1.55rem);
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: center;
 }
 
@@ -1828,6 +1828,24 @@ button:hover,
 
   box-shadow:
     0 18px 34px rgba(68,48,45,.11);
+}
+
+/* Family member shown without contact buttons */
+.contact-item-presence{
+  grid-column: 1 / -1;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr);
+
+  grid-template-areas:
+    "avatar details";
+
+  width: calc((100% - 16px) / 2);
+
+  justify-self: center;
+
+  cursor: default;
 }
 
 /* Initials circle */
@@ -2782,6 +2800,11 @@ button:hover,
 
   .contact-name{
     font-size: 1.3rem;
+  }
+
+  .contact-item-presence{
+    grid-column: auto;
+    width: 100%;
   }
 }
 
